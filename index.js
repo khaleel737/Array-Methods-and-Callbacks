@@ -59,7 +59,7 @@ function getYears(array, finalsCB) {
     /* code here */
 
     const fullYears = [];
-    const allYears = array.forEach(function(item){ fullYears.push(item['Year'])});
+    const allYears = array.forEach(function finalsCB (item){ fullYears.push(item['Year'])});
     return fullYears;
 }
 console.log(getYears(fifaData, getFinals))
@@ -100,19 +100,23 @@ hint: the strings returned need to exactly match the string in step 4.
 
 function getWinnersByYear(array, getYearsCB, getWinnersCB) {
     /* code here */
-    const allDataNeeded = [];
-
-    const task2CB = allDataNeeded.push(getYears(fifaData, getFinals));
-    const task3CB = allDataNeeded.push(getWinners(fifaData, getFinals));
     
-    const getYearsWinners = allDataNeeded.map(function(item){item['Year'] && item['Home Team Name']
-    return `In ${array['Year']}, ${array['Home Team Name']} won the world cup!`;
-})
-return getYearsWinners;
+    // console.log(getWinnersByYear());
+    
+    const totalDat = [];
+    const theNewWinners = [];
+    
+    const task2CB = totalDat.push(getYearsCB(fifaData, getFinals));
+    const task3CB = totalDat.push(getWinnersCB(fifaData, getFinals));
+    
+    const getYearsWinners = array.forEach(function (item){
+    theNewWinners.push(`In ${item['Year']}, ${item['Home Team Name']} won the world cup!`);
+    })
+    return theNewWinners;
 }
-console.log(getWinnersByYear(fifaData, getFinals, getWinners));
 
 
+console.log(getWinnersByYear(fifaData, getYears, getWinners));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher order function getAverageGoals to do the following: 
